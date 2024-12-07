@@ -83,7 +83,7 @@ class BM25Retriever(Retrieval):
         self.results = {qid: {} for qid in query_ids}
 
         logger.info("Tokenizing queries with lower cases")
-        query_lower_tokens = self.tokenizer([queries[qid].lower() for qid in queries])
+        query_lower_tokens = self.tokenizer([str(queries[qid]).lower() for qid in queries])
 
         corpus_ids = list(corpus.keys())
 
